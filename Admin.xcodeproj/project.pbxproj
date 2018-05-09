@@ -13,6 +13,7 @@
 		9AF83DF5209E173D005C087F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF83DF3209E173D005C087F /* Main.storyboard */; };
 		9AF83DF7209E173E005C087F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AF83DF6209E173E005C087F /* Assets.xcassets */; };
 		9AF83DFA209E173E005C087F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF83DF8209E173E005C087F /* LaunchScreen.storyboard */; };
+		E28A39FD20A32A64009C3B43 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28A39FC20A32A64009C3B43 /* SignUpController.swift */; };
 		E2BA4F8C20A32022000186C9 /* ViewControllerProflie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA4F8B20A32022000186C9 /* ViewControllerProflie.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		9AF83DF9209E173E005C087F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9AF83DFB209E173E005C087F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE8F6BE3E226EFEF0A7FE224 /* Pods-Admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Admin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Admin/Pods-Admin.release.xcconfig"; sourceTree = "<group>"; };
+		E28A39FC20A32A64009C3B43 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		E2BA4F8B20A32022000186C9 /* ViewControllerProflie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProflie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 				9AF83DEF209E173D005C087F /* AppDelegate.swift */,
 				9AF83DF1209E173D005C087F /* ViewController.swift */,
 				E2BA4F8B20A32022000186C9 /* ViewControllerProflie.swift */,
+				E28A39FC20A32A64009C3B43 /* SignUpController.swift */,
 				9AF83DF3209E173D005C087F /* Main.storyboard */,
 				9AF83DF6209E173E005C087F /* Assets.xcassets */,
 				9AF83DF8209E173E005C087F /* LaunchScreen.storyboard */,
@@ -212,6 +215,7 @@
 				9AF83DF2209E173D005C087F /* ViewController.swift in Sources */,
 				9AF83DF0209E173D005C087F /* AppDelegate.swift in Sources */,
 				E2BA4F8C20A32022000186C9 /* ViewControllerProflie.swift in Sources */,
+				E28A39FD20A32A64009C3B43 /* SignUpController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
