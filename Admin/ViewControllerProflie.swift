@@ -7,12 +7,13 @@
 //
 
 import UIKit
-
+import Firebase
 class ViewControllerProflie: UIViewController {
-
+    
+    @IBOutlet weak var profilePic: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 

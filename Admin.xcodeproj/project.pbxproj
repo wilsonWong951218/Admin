@@ -27,12 +27,6 @@
 		9AF83DF9209E173E005C087F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9AF83DFB209E173E005C087F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE8F6BE3E226EFEF0A7FE224 /* Pods-Admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Admin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Admin/Pods-Admin.release.xcconfig"; sourceTree = "<group>"; };
-		E2BA4F8120A31C45000186C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E2BA4F8220A31C45000186C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E2BA4F8420A31C45000186C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E2BA4F8620A31C45000186C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E2BA4F8720A31C45000186C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E2BA4F8820A31C45000186C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2BA4F8B20A32022000186C9 /* ViewControllerProflie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProflie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +75,6 @@
 				9AF83DF1209E173D005C087F /* ViewController.swift */,
 				E2BA4F8B20A32022000186C9 /* ViewControllerProflie.swift */,
 				9AF83DF3209E173D005C087F /* Main.storyboard */,
-				E2BA4F8020A31C45000186C9 /* login */,
 				9AF83DF6209E173E005C087F /* Assets.xcassets */,
 				9AF83DF8209E173E005C087F /* LaunchScreen.storyboard */,
 				9AF83DFB209E173E005C087F /* Info.plist */,
@@ -96,20 +89,6 @@
 				AE8F6BE3E226EFEF0A7FE224 /* Pods-Admin.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		E2BA4F8020A31C45000186C9 /* login */ = {
-			isa = PBXGroup;
-			children = (
-				E2BA4F8120A31C45000186C9 /* ViewController.swift */,
-				E2BA4F8220A31C45000186C9 /* Assets.xcassets */,
-				E2BA4F8320A31C45000186C9 /* LaunchScreen.storyboard */,
-				E2BA4F8520A31C45000186C9 /* Main.storyboard */,
-				E2BA4F8720A31C45000186C9 /* AppDelegate.swift */,
-				E2BA4F8820A31C45000186C9 /* Info.plist */,
-			);
-			name = login;
-			path = ../../login/login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,22 +232,6 @@
 				9AF83DF9209E173E005C087F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		E2BA4F8320A31C45000186C9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2BA4F8420A31C45000186C9 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		E2BA4F8520A31C45000186C9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2BA4F8620A31C45000186C9 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
