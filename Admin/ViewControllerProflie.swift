@@ -11,11 +11,27 @@ import Firebase
 class ViewControllerProflie: UIViewController {
     
    
+    @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var profilePic: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let profileID = UserDefaults.standard.object(forKey:"proflieID") as! NSArray
         
-        // Do any additional setup after loading the view.
+        let image = UIImage(data: profileID[0] as! Data)
+        profilePic.setImage(image, for: UIControlState.normal)
+        profilePic.layer.cornerRadius = profilePic.frame.width/2
+        profilePic.layer.masksToBounds = true
+        
+        profileName.text = profileID[2] as? String
+
     }
+    
+    
+    @IBAction func logOutButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

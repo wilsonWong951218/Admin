@@ -9,9 +9,10 @@
 import UIKit
 
 class SignUpController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
-
     
-    @IBOutlet weak var signUpButton: UIButton!
+    
+    var data = [""] as [Any]
+    //Mark -> SignUp information Fill
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var userNameText: UITextField!
@@ -22,25 +23,46 @@ class SignUpController: UIViewController,UIImagePickerControllerDelegate,UINavig
         emailText.addTarget(self, action: #selector(buttonEnable), for:.editingChanged)
         passwordText.addTarget(self, action: #selector(buttonEnable), for:.editingChanged)
         userNameText.addTarget(self, action: #selector(buttonEnable), for:.editingChanged)
+        let path = NSHomeDirectory()
+        print(path)
         // Do any additional setup after loading the view.
     }
+    
+    //Mark -> Back to Login Page
     @IBAction func backToSignInPage(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
     
+    //Mark -> SignUpButton effect
+    @IBOutlet weak var signUpButton: UIButton!{
+        didSet{
+            signUpButton.isEnabled = false
+        }
+    }
+    
+    
+    
     @objc func buttonEnable(){
+        var dataInform = [""]
         if let isEmailValue = emailText.text?.count,let isUserNameValue = userNameText.text?.count,let isPasswordValue = passwordText.text?.count{
             if isEmailValue > 0 && isUserNameValue > 0 && isPasswordValue > 0 {
                 signUpButton.isEnabled = true
                 signUpButton.backgroundColor = UIColor(red: 17/255, green: 154/255, blue: 237/255, alpha: 1)
+                // UserDefaults.standard.set(data, forKey: "arrayData")
+                // UserDefaults.standard.synchronize()
+                
             }else{
                 signUpButton.isEnabled = false
                 signUpButton.backgroundColor =  UIColor(red: 149/255, green: 204/255, blue: 244/255, alpha: 1)
             }
         }
+      
     }
     
+    
+    
+    //Mark -> Photo Choose Button
     @objc func handlePlusPhoto(){
         let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let action1 = UIAlertAction(title: "Library", style: .default) { (action) in
@@ -55,7 +77,7 @@ class SignUpController: UIViewController,UIImagePickerControllerDelegate,UINavig
         sheet.addAction(action2)
         sheet.addAction(action3)
         present(sheet, animated: true, completion: nil)
-     
+        
     }
     
     func handlePlusPhotoLibrary(){
@@ -65,7 +87,7 @@ class SignUpController: UIViewController,UIImagePickerControllerDelegate,UINavig
         imagePickUpControl.allowsEditing = true
         present(imagePickUpControl, animated: true, completion: nil)
     }
-
+    
     func cameraPlusPhoto(){
         let cameraPickUpControl = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(.camera){
@@ -93,31 +115,44 @@ class SignUpController: UIViewController,UIImagePickerControllerDelegate,UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let editImage = info["UIImagePickerControllerEditedImage"] as? UIImage{
             addPhotoButton.setImage(editImage.withRenderingMode(.alwaysOriginal), for:.normal)
-            
+            let imageData = UIImageJPEGRepresentation(editImage, 100)
+            data = [imageData as! Data]
         }else if let orignalImage = info["UIImagePickerControllerOriginalImage"]as?UIImage{
-            addPhotoButton.setImage(orignalImage.withRenderingMode(.alwaysOriginal), for:.normal)
             
+            addPhotoButton.setImage(orignalImage.withRenderingMode(.alwaysOriginal), for:.normal)
+//            guard let imageData = UIImageJPEGRepresentation(orignalImage, 100) else{return}
+//            guard let imageString = String(data: imageData, encoding: .utf8) else{return}
+//            data = [imageString]
         }
         addPhotoButton.layer.cornerRadius = addPhotoButton.frame.width/2
         addPhotoButton.layer.masksToBounds = true
         
+        
+        
         dismiss(animated: true, completion: nil)
     }
-    
+    @IBAction func signUpSuccese(_ sender: UIButton) {
+        if signUpButton.isEnabled{
+            performSegue(withIdentifier: "showProfile", sender: nil)
+            data += [userNameText.text!,passwordText.text!,emailText.text!]
+            UserDefaults.standard.set(data, forKey: "proflieID")
+        }
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
