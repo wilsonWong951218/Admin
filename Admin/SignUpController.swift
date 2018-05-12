@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class SignUpController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
-    
+    var dbReference: DatabaseReference?
     var data = [""] as [Any]
     //Mark -> SignUp information Fill
     @IBOutlet weak var emailText: UITextField!
@@ -133,6 +134,11 @@ class SignUpController: UIViewController,UIImagePickerControllerDelegate,UINavig
     }
     @IBAction func signUpSuccese(_ sender: UIButton) {
         if signUpButton.isEnabled{
+            dbReference = Database.database().reference()
+            dbReference?.child("name").childByAutoId().setValue(userNameText.text!)
+            dbReference?.child("password").childByAutoId().setValue(passwordText.text!)
+            dbReference?.child("email").childByAutoId().setValue(emailText.text!)
+            
             performSegue(withIdentifier: "showProfile", sender: nil)
             data += [userNameText.text!,passwordText.text!,emailText.text!]
             UserDefaults.standard.set(data, forKey: "proflieID")

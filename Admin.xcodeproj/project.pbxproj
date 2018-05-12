@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FC12623AB0AA3DEDB3F7265 /* Pods_Admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5327717F5CA7A96B938D82 /* Pods_Admin.framework */; };
+		4BED94AF20A6C7F0008E7AE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BED94AE20A6C7F0008E7AE7 /* GoogleService-Info.plist */; };
 		9AF83DF0209E173D005C087F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF83DEF209E173D005C087F /* AppDelegate.swift */; };
 		9AF83DF2209E173D005C087F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF83DF1209E173D005C087F /* ViewController.swift */; };
 		9AF83DF5209E173D005C087F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF83DF3209E173D005C087F /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		0AB44D791CEFDB2CC1784237 /* Pods-Admin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Admin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Admin/Pods-Admin.debug.xcconfig"; sourceTree = "<group>"; };
+		4BED94AE20A6C7F0008E7AE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8D5327717F5CA7A96B938D82 /* Pods_Admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF83DEC209E173D005C087F /* Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Admin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF83DEF209E173D005C087F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				9AF83DF3209E173D005C087F /* Main.storyboard */,
 				9AF83DF6209E173E005C087F /* Assets.xcassets */,
 				9AF83DF8209E173E005C087F /* LaunchScreen.storyboard */,
+				4BED94AE20A6C7F0008E7AE7 /* GoogleService-Info.plist */,
 				9AF83DFB209E173E005C087F /* Info.plist */,
 			);
 			path = Admin;
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AF83DFA209E173E005C087F /* LaunchScreen.storyboard in Resources */,
+				4BED94AF20A6C7F0008E7AE7 /* GoogleService-Info.plist in Resources */,
 				9AF83DF7209E173E005C087F /* Assets.xcassets in Resources */,
 				9AF83DF5209E173D005C087F /* Main.storyboard in Resources */,
 			);
@@ -361,7 +365,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2QCM3V6Y9N;
+				DEVELOPMENT_TEAM = LQM5JNCFXV;
 				INFOPLIST_FILE = Admin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -380,7 +384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2QCM3V6Y9N;
+				DEVELOPMENT_TEAM = LQM5JNCFXV;
 				INFOPLIST_FILE = Admin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
