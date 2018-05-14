@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseDatabase
 
 class SignUpController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
-    var dbReference: DatabaseReference?
+//    var dbReference: DatabaseReference?
     var data = [""] as [Any]
     //Mark -> SignUp information Fill
     @IBOutlet weak var emailText: UITextField!
@@ -26,6 +27,7 @@ class SignUpController: UIViewController,UIImagePickerControllerDelegate,UINavig
         userNameText.addTarget(self, action: #selector(buttonEnable), for:.editingChanged)
         let path = NSHomeDirectory()
         print(path)
+        signUpButton.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         // Do any additional setup after loading the view.
     }
     
@@ -134,10 +136,10 @@ class SignUpController: UIViewController,UIImagePickerControllerDelegate,UINavig
     }
     @IBAction func signUpSuccese(_ sender: UIButton) {
         if signUpButton.isEnabled{
-            dbReference = Database.database().reference()
-            dbReference?.child("name").childByAutoId().setValue(userNameText.text!)
-            dbReference?.child("password").childByAutoId().setValue(passwordText.text!)
-            dbReference?.child("email").childByAutoId().setValue(emailText.text!)
+//            dbReference = Database.database().reference()
+//            dbReference?.child("name").childByAutoId().setValue(userNameText.text!)
+//            dbReference?.child("password").childByAutoId().setValue(passwordText.text!)
+//            dbReference?.child("email").childByAutoId().setValue(emailText.text!)
             
             performSegue(withIdentifier: "showProfile", sender: nil)
             data += [userNameText.text!,passwordText.text!,emailText.text!]
@@ -145,6 +147,59 @@ class SignUpController: UIViewController,UIImagePickerControllerDelegate,UINavig
         }
         
     }
+    func handleTextInputChange(){
+        let isEmailValid = emailText.text?.characters.count ?? 0 > 0
+        
+    }
+   @objc func handleSignUp(){
+    guard let userEmail = emailText.text, userEmail.characters.count > 0
+        else { return }
+    guard let userName = userNameText.text, userName.characters.count > 0
+        else { return }
+    guard let userPassword = passwordText.text, userPassword.characters.count > 0
+        else { return }
+    
+        Auth.auth().createUser(withEmail: userEmail, password: userPassword, completion: { (User, error) in
+            if let err = error {
+                print("Failed:", err)
+                return
+            }
+            guard let image = self.addPhotoButton.imageView?.image else { return }
+            guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else { return }
+            
+            Storage.storage().reference().child("profile_image").putData(uploadData, metadata: nil, completion: { (metadata, err) in
+                if let err = err {
+                    print("Failed to upload profile image: ", err)
+                    return // return if it fails
+                }
+                
+                Storage.storage().reference().child("profile_image").downloadURL(completion: { (url, error) in
+                    guard let profileImageUrl = url?.absoluteString else { return }
+                    print("Sucessfully uploaded profile image", profileImageUrl)
+                })
+                
+            })
+            
+//            guard let uid = User?.user.uid else { return }
+//            let userNameValue = ["userName": userName]
+//            let userEmailValue = ["userName": userEmail]
+//            let userPasswordValue = ["userName": userPassword]
+//
+//
+//            let values = [uid: userNameValue]
+//            print("sucess111:",User?.user.uid ?? "")
+//
+//            Database.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (err, ref) in
+//                if let err = err{
+//                    print("", err)
+//                    return
+//                }
+//                print("sucess save db!!!!!!!")
+//            })
+            })
+        }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
