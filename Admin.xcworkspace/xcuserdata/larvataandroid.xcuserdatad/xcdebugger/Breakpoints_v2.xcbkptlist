@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Admin/SignUpController.swift"
-            timestampString = "548171679.6964639"
+            timestampString = "548589422.401666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "162"
@@ -58,12 +58,91 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Admin/SignUpController.swift"
-            timestampString = "548171679.697209"
+            timestampString = "548589422.402076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "164"
             endingLineNumber = "164"
             landmarkName = "handleSignUp()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Admin/ViewController.swift"
+            timestampString = "548589422.402404"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "getDBvalue()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Admin.ViewController.getDBvalue() -&gt; ()"
+                  moduleName = "Admin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/larvataandroid/Desktop/school/ios/OrderingSystem/Admin/Admin/ViewController.swift"
+                  timestampString = "548259566.603545"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "1658">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in Admin.ViewController.getDBvalue() -&gt; ()"
+                  moduleName = "Admin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/larvataandroid/Desktop/school/ios/OrderingSystem/Admin/Admin/ViewController.swift"
+                  timestampString = "548259566.605806"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "844">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Error) -&gt; () in Admin.ViewController.getDBvalue() -&gt; ()"
+                  moduleName = "Admin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/larvataandroid/Desktop/school/ios/OrderingSystem/Admin/Admin/ViewController.swift"
+                  timestampString = "548259566.609019"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Admin/ViewControllerProflie.swift"
+            timestampString = "548589422.402843"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "getUserName(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
