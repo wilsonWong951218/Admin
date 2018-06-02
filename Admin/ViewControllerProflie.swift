@@ -8,51 +8,73 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
-class ViewControllerProflie: UIViewController {
+class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-   var userName = [String]()
+    @IBOutlet weak var tableView: UITableView!
+    var userName = [String]()
+    var ShopName:String?
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profilePic: UIButton!
+//    @IBOutlet weak var orderItem: UITableViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let profileID = UserDefaults.standard.object(forKey:"proflieID") as! NSArray
-//
-//        let image = UIImage(data: profileID[0] as! Data)
-//        profilePic.setImage(image, for: UIControlState.normal)
-//        profilePic.layer.cornerRadius = profilePic.frame.width/2
-//        profilePic.layer.masksToBounds = true
+        //guard let userName = profileName.text else { return }
+
+//        ToDoController.getUserInfo(userName: String(userName))
+        let profileID = UserDefaults.standard.object(forKey:"proflieID") as! NSArray
+
+        let image = UIImage(data: profileID[0] as! Data)
+        profilePic.setImage(image, for: UIControlState.normal)
+        profilePic.layer.cornerRadius = profilePic.frame.width/2
+        profilePic.layer.masksToBounds = true
 //
 //        profileName.text = profileID[2] as? String
         getUserInfo()
 
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ToDoController.todosArray.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.textLabel?.text = ToDoController.todosArray[indexPath.row]
+        return cell
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+       
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            ToDoController.removeToDo(atIndex: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
     
     @IBAction func logOutButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     func getUserInfo(){
         guard let userName = profileName.text else { return }
-//        Database.database().reference().child("ShopManagement").child(userName).observeSingleEvent(of: DataEventType.value) { (Snapshot) in
-//                      guard let dictionary = Snapshot.value as? [String:Any] else {return}
-//            profileName.text = Database.database().reference().child("ShopManagement").child(userName).
-//        }
-        Database.database().reference().child("ShopManagement").child("Shop1").observeSingleEvent(of: .value, with: { (snapshot) in
+
+ Database.database().reference().child("ShopManagement").child("Shop2").observeSingleEvent(of: .value, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String:Any] else { return }
             guard let profileUserName = dictionary["userName"] as? String else { return }
             self.profileName.text = profileUserName
             print(snapshot)
-            //var foodNameArray = self.getUserName(snapshot)
-//            profileName.text = foodNameArray
-//            var foodPriceArray = self.getFoodPrice(snapshot)
-//            cell.lbName.text = foodNameArray[indexPath.row]
-//            cell.lbPrice.text = "Price:\(foodPriceArray[indexPath.row])"
+
         }) { (error) in
             print("Error get food detail:",error)
         }
-//     profileName.text = Database.database().reference().child("ShopManagement").child(userName).
-
     }
     func getUserName(_ snapshot:DataSnapshot)->[String]{
         for food in snapshot.children.allObjects as! [DataSnapshot]{
@@ -60,7 +82,7 @@ class ViewControllerProflie: UIViewController {
             //userName += [food.key]
             
         }
-        print(userName)
+//        print(userName)
         return userName
     }
     
