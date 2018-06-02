@@ -50,6 +50,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4BC198D920C2B5D700B4D05E /* Login&SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				E28A39FC20A32A64009C3B43 /* SignUpController.swift */,
+				9AF83DF1209E173D005C087F /* ViewController.swift */,
+			);
+			path = "Login&SignUp";
+			sourceTree = "<group>";
+		};
+		4BC198DA20C2B64100B4D05E /* ManageProfile */ = {
+			isa = PBXGroup;
+			children = (
+				E2BA4F8B20A32022000186C9 /* ViewControllerProflie.swift */,
+			);
+			path = ManageProfile;
+			sourceTree = "<group>";
+		};
+		4BC198DB20C2B66B00B4D05E /* Delete */ = {
+			isa = PBXGroup;
+			children = (
+				4B6D412920B32F5D001BD051 /* ToDoViewController.swift */,
+				4B6D412B20B33147001BD051 /* ToDoController.swift */,
+			);
+			path = Delete;
+			sourceTree = "<group>";
+		};
 		61A736EEDE9B4865B3534131 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,12 +105,10 @@
 		9AF83DEE209E173D005C087F /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				4BC198DB20C2B66B00B4D05E /* Delete */,
+				4BC198DA20C2B64100B4D05E /* ManageProfile */,
+				4BC198D920C2B5D700B4D05E /* Login&SignUp */,
 				9AF83DEF209E173D005C087F /* AppDelegate.swift */,
-				9AF83DF1209E173D005C087F /* ViewController.swift */,
-				E2BA4F8B20A32022000186C9 /* ViewControllerProflie.swift */,
-				4B6D412920B32F5D001BD051 /* ToDoViewController.swift */,
-				4B6D412B20B33147001BD051 /* ToDoController.swift */,
-				E28A39FC20A32A64009C3B43 /* SignUpController.swift */,
 				9AF83DF3209E173D005C087F /* Main.storyboard */,
 				9AF83DF6209E173E005C087F /* Assets.xcassets */,
 				9AF83DF8209E173E005C087F /* LaunchScreen.storyboard */,
