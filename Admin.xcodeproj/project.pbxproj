@@ -81,8 +81,8 @@
 			children = (
 				9AF83DEF209E173D005C087F /* AppDelegate.swift */,
 				9AF83DF1209E173D005C087F /* ViewController.swift */,
-				4B6D412920B32F5D001BD051 /* ToDoViewController.swift */,
 				E2BA4F8B20A32022000186C9 /* ViewControllerProflie.swift */,
+				4B6D412920B32F5D001BD051 /* ToDoViewController.swift */,
 				4B6D412B20B33147001BD051 /* ToDoController.swift */,
 				E28A39FC20A32A64009C3B43 /* SignUpController.swift */,
 				9AF83DF3209E173D005C087F /* Main.storyboard */,

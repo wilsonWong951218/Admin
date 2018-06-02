@@ -14,25 +14,31 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     var userName = [String]()
-    var ShopName:String?
+    var ShopName=String()
+    var ShopManage = "ShopManagement"
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profilePic: UIButton!
-//    @IBOutlet weak var orderItem: UITableViewCell!
+    //    @IBOutlet weak var orderItem: UITableViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
         //guard let userName = profileName.text else { return }
-
-//        ToDoController.getUserInfo(userName: String(userName))
+        
+        //        ToDoController.getUserInfo(userName: String(userName))
         let profileID = UserDefaults.standard.object(forKey:"proflieID") as! NSArray
-
+        
+        Database.database().reference().child(ShopManage).child(ShopName).observeSingleEvent(of: .value, with: { (SnapShot) in
+            print(SnapShot)
+        }) { (error) in
+            print(error)
+        }
         let image = UIImage(data: profileID[0] as! Data)
         profilePic.setImage(image, for: UIControlState.normal)
         profilePic.layer.cornerRadius = profilePic.frame.width/2
         profilePic.layer.masksToBounds = true
-//
-//        profileName.text = profileID[2] as? String
+        //
+        //        profileName.text = profileID[2] as? String
         getUserInfo()
-
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -52,56 +58,56 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-       
+        
         if editingStyle == UITableViewCellEditingStyle.delete {
             ToDoController.removeToDo(atIndex: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
+    
     
     @IBAction func logOutButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     func getUserInfo(){
         guard let userName = profileName.text else { return }
-
- Database.database().reference().child("ShopManagement").child("Shop2").observeSingleEvent(of: .value, with: { (snapshot) in
+        
+        Database.database().reference().child("ShopManagement").child(ShopName).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String:Any] else { return }
             guard let profileUserName = dictionary["userName"] as? String else { return }
             self.profileName.text = profileUserName
             print(snapshot)
-
+            
         }) { (error) in
             print("Error get food detail:",error)
         }
     }
     func getUserName(_ snapshot:DataSnapshot)->[String]{
         for food in snapshot.children.allObjects as! [DataSnapshot]{
-           print("food.key")
+            print("food.key")
             //userName += [food.key]
             
         }
-//        print(userName)
+        //        print(userName)
         return userName
     }
     
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

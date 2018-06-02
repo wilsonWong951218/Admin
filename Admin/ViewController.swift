@@ -44,7 +44,7 @@ class ViewController: UIViewController {
             
             if userPassWordText == passwordText{
                 print("Login Succese")
-                self.performSegue(withIdentifier: "loginSuccess", sender: nil)
+                self.performSegue(withIdentifier: "id", sender: nil)
 //                print(userText)
                 
 //                prepare(for: UIStoryboardSegue, sender: Any?)
@@ -63,16 +63,17 @@ class ViewController: UIViewController {
             print("error",Error)
         }
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-//        //拿到使用者輸入文字
-//        let inputText = userNameText.text
-//
-//        //找到下一個view controller
-//        if let namePass = segue.destination as? ViewControllerProflie{
-//            namePass.ShopName = inputText
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        //拿到使用者輸入文字
+        guard let inputText = userNameText.text else { return }
 
+        //找到下一個view controller
+        if segue.identifier == "id"{
+        let namePass = segue.destination as! ViewControllerProflie
+        namePass.ShopName = inputText
+        }
+    }
+    
 
 }
 
