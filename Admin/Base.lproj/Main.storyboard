@@ -233,12 +233,30 @@
                         <outlet property="loginButton" destination="9PJ-jy-qMy" id="ffm-4T-TOb"/>
                         <outlet property="passwordText" destination="3ZC-qj-tQR" id="v9f-zJ-Fiv"/>
                         <outlet property="userNameText" destination="1gf-Nz-rjc" id="j2j-H7-4vT"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="id" id="oqK-17-0kC"/>
+                        <segue destination="ZVc-yz-1eT" kind="show" identifier="id" id="g63-Ij-wx7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kaf-9i-Huz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2670" y="337"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zQo-m7-EO9">
+            <objects>
+                <tabBarController id="ZVc-yz-1eT" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qba-D8-Od7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="1CU-qZ-Bbf"/>
+                        <segue destination="ZaD-hE-pxy" kind="relationship" relationship="viewControllers" id="iWE-P3-thD"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ybm-Ae-X6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1183" y="378"/>
         </scene>
         <!--Hone-->
         <scene sceneID="tne-QT-ifu">

@@ -11,6 +11,8 @@ import UIKit
 class ToDoViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
+    
+    let VC = ToDoController()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,7 +25,7 @@ class ToDoViewController: UIViewController {
     
 
     @IBAction func saveToDo(_ sender: Any) {
-        ToDoController.addToDo(newToDo: textField.text!)
+        VC.addToDo(newToDo: textField.text!)
         
         dismiss(animated: true, completion: nil)
     }

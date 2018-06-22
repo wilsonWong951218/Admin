@@ -10,10 +10,11 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableViewDelegate ,UITabBarDelegate{
     
     @IBOutlet weak var tableView: UITableView!
-    var userName = [String]()
+    
+    let VC = ToDoController()
     var ShopName=String()
     var ShopManage = "ShopManagement"
     @IBOutlet weak var profileName: UILabel!
@@ -21,24 +22,17 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
     //    @IBOutlet weak var orderItem: UITableViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let v1 = UIView
-        //guard let userName = profileName.text else { return }
         
-        //        ToDoController.getUserInfo(userName: String(userName))
-        let profileID = UserDefaults.standard.object(forKey:"proflieID") as! NSArray
         
-        Database.database().reference().child(ShopManage).child(ShopName).observeSingleEvent(of: .value, with: { (SnapShot) in
-            print(SnapShot)
-        }) { (error) in
-            print(error)
-        }
-        let image = UIImage(data: profileID[0] as! Data)
-        profilePic.setImage(image, for: UIControlState.normal)
-        profilePic.layer.cornerRadius = profilePic.frame.width/2
-        profilePic.layer.masksToBounds = true
-        //
-        //        profileName.text = profileID[2] as? String
+        
+        
         getUserInfo()
+        //        let image = UIImage(data: profileID[0] as! Data)
+        //        profilePic.setImage(image, for: UIControlState.normal)
+        //        profilePic.layer.cornerRadius = profilePic.frame.width/2
+        //        profilePic.layer.masksToBounds = true
+        
+        //        getUserInfo()
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -61,7 +55,7 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == UITableViewCellEditingStyle.delete {
-            ToDoController.removeToDo(atIndex: indexPath.row)
+            VC.removeToDo(atIndex: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -71,8 +65,8 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
         dismiss(animated: true, completion: nil)
     }
     func getUserInfo(){
-        guard let userName = profileName.text else { return }
-        
+        let profileID = UserDefaults.standard.object(forKey:"ID") as! NSDictionary
+        ShopName = profileID["Username"] as! String
         Database.database().reference().child("ShopManagement").child(ShopName).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String:Any] else { return }
             guard let profileUserName = dictionary["userName"] as? String else { return }
@@ -83,32 +77,7 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
             print("Error get food detail:",error)
         }
     }
-    func getUserName(_ snapshot:DataSnapshot)->[String]{
-        for food in snapshot.children.allObjects as! [DataSnapshot]{
-            print("food.key")
-            //userName += [food.key]
-            
-        }
-        //        print(userName)
-        return userName
-    }
     
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
