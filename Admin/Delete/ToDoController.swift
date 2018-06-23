@@ -20,7 +20,7 @@ class ToDoController{
     
     func getUserInfo(userName: String){
         ToDoController.userNameData = userName
-//        print(userNameData + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        //        print(userNameData + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         var orderListDataKeyArray = [String]()
         let calendar = Calendar.current
         let now = Date()
@@ -30,11 +30,11 @@ class ToDoController{
         let time = DateFormatter()
         year.dateFormat = "yyyy年"
         month.dateFormat = "MM月"
-        date.dateFormat = "16日"
+        date.dateFormat = "dd日"
         time.dateFormat = "HH:mm:ss"
         let isYear = year.string(from: now)
         let isMonth = month.string(from: now)
-        let isDate = "16日"
+        let isDate = date.string(from: now)
         
         //抓key而已，把key丟進orderListArray裡面
         Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -46,21 +46,36 @@ class ToDoController{
                 orderListDataKeyArray.append(keyId.key)
                 
             }
+            for orderList in orderListDataKeyArray {
+                ToDoController.todosArray.append(String(orderList.suffix(5)))
+            }
+            
             print("snapshot ~:",snapshot)
             for keyIndex in orderListDataKeyArray.indices {
-                Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(orderListDataKeyArray[keyIndex]).child(userName).observeSingleEvent(of: .value, with: { (snap) in
-                    let valueMilo = snap.value as! [String:Any]
-                    //抓shop底下的food名字為key
-                    for food in snap.children.allObjects as! [DataSnapshot]{
-                        print(food.key)
-                        ToDoController.todosArray.append(food.key)
-                        
+                
+                Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(orderListDataKeyArray[keyIndex]).observeSingleEvent(of: .value, with: { (mysnap) in
+                    
+                    if mysnap.hasChild(userName) {
+                        Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(orderListDataKeyArray[keyIndex]).child(userName).observeSingleEvent(of: .value, with: { (snap) in
+//                            let valueMilo = snap.value as! [String:Any]
+//                            //抓shop底下的food名字為key
+//                            for food in snap.children.allObjects as! [DataSnapshot]{
+//                                print(food.key)
+//                                ToDoController.todosArray.append(food.key)
+//
+//
+//                            }
+//                            print(valueMilo)
+                        }, withCancel: { (error) in
+                            print(error)
+                        })
                         
                     }
-                    print(valueMilo)
                 }, withCancel: { (error) in
                     print(error)
                 })
+                
+                
             }
             
         }) { (error) in
@@ -81,14 +96,7 @@ class ToDoController{
     
     
     
-    
-    
-    
-    
-    
-    
-    
-     func addToDo( newToDo:String ){
+    func addToDo( newToDo:String ){
         let now = Date()
         let year = DateFormatter()
         let month = DateFormatter()
@@ -102,8 +110,8 @@ class ToDoController{
         let isMonth = month.string(from: now)
         let isDate = date.string(from: now)
         Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserved").child(ToDoController.userNameData).child("StudentId103590054").setValue(["OrderNumber": "ManagementORDER: " + newToDo])
-            
-            ToDoController.todosArray.append( "ManagementORDER:"  + "("+newToDo+")")
+        
+        ToDoController.todosArray.append( "ManagementORDER:"  + "("+newToDo+")")
     }
     
     
@@ -122,11 +130,11 @@ class ToDoController{
         let time = DateFormatter()
         year.dateFormat = "yyyy年"
         month.dateFormat = "MM月"
-        date.dateFormat = "16日"
+        date.dateFormat = "dd日"
         time.dateFormat = "HH:mm:ss"
         let isYear = year.string(from: now)
         let isMonth = month.string(from: now)
-        let isDate = "16日"
+        let isDate =  date.string(from: now)
         Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").observeSingleEvent(of: .value, with: { (snapshot) in
             
             //    snapshot.childSnapshot(forPath: "key").childSnapshot(forPath: "Shop1") Shop1抓店名字
@@ -138,12 +146,15 @@ class ToDoController{
             }
             print("snapshot ~:",snapshot)
             for keyIndex in orderListDataKeyArray.indices {
+                
+                
+                
                 Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(orderListDataKeyArray[keyIndex]).child(ToDoController.userNameData).observeSingleEvent(of: .value, with: { (snap) in
                     let valueMilo = snap.value as! [String:Any]
                     //抓shop底下的food名字為key
                     for food in snap.children.allObjects as! [DataSnapshot]{
                         print(food.key)
-//                        ToDoController.todosArray.append(food.key)
+                        //                        ToDoController.todosArray.append(food.key)
                         Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(orderListDataKeyArray[keyIndex]).child(ToDoController.userNameData).setValue(nil)
                         
                         
@@ -162,22 +173,22 @@ class ToDoController{
             print("Error get food detail:",error)
         }
         
-//        Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child("Shop2").child("StudentId103590054").observeSingleEvent(of: .value, with: { (snapshot) in
-//            guard let dictionary = snapshot.value as? [String:Any] else { return }
-//            guard let profileUserName = dictionary["OrderNumber"] as? String else { return }
-//            //            self.profileName.text = profileUserName
-////            print(snapshot)
-//           Database.database().reference().child("OrderList").child("2018").child("5").child("22").child("Unserved").child("Shop2").child("StudentId103590054").setValue(nil)
-//            Database.database().reference().child("OrderList").child("2018").child("5").child("22").child("served").child("Shop2").child("StudentId103590054").setValue(["OrderNumber": profileUserName])
-//           
-//            
-//        }) { (error) in
-//            print("Error get food detail:",error)
-//        }
-//        } Database.database().reference().child("OrderList").child("2018").child("5").child("22").child("served").child("Shop1").child("StudentId103590054").setValue(nil)
-//        Database.database().reference().child("OrderList").child("2018").child("5").child("22").child("Unserved").child("Shop1").child("StudentId103590054").setValue(nil)
+        //        Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child("Shop2").child("StudentId103590054").observeSingleEvent(of: .value, with: { (snapshot) in
+        //            guard let dictionary = snapshot.value as? [String:Any] else { return }
+        //            guard let profileUserName = dictionary["OrderNumber"] as? String else { return }
+        //            //            self.profileName.text = profileUserName
+        ////            print(snapshot)
+        //           Database.database().reference().child("OrderList").child("2018").child("5").child("22").child("Unserved").child("Shop2").child("StudentId103590054").setValue(nil)
+        //            Database.database().reference().child("OrderList").child("2018").child("5").child("22").child("served").child("Shop2").child("StudentId103590054").setValue(["OrderNumber": profileUserName])
+        //
+        //
+        //        }) { (error) in
+        //            print("Error get food detail:",error)
+        //        }
+        //        } Database.database().reference().child("OrderList").child("2018").child("5").child("22").child("served").child("Shop1").child("StudentId103590054").setValue(nil)
+        //        Database.database().reference().child("OrderList").child("2018").child("5").child("22").child("Unserved").child("Shop1").child("StudentId103590054").setValue(nil)
         
-
+        
         ToDoController.todosArray.remove(at: atIndex)
         
     }

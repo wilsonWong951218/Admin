@@ -148,15 +148,15 @@ class SignUpController: UIViewController,UIImagePickerControllerDelegate,UINavig
         
     }
     func handleTextInputChange(){
-        let isEmailValid = emailText.text?.characters.count ?? 0 > 0
+        let isEmailValid = emailText.text?.count ?? 0 > 0
         
     }
    @objc func handleSignUp(){
-    guard let userEmail = emailText.text, userEmail.characters.count > 0
+    guard let userEmail = emailText.text, userEmail.count > 0
         else { return }
-    guard let userName = userNameText.text, userName.characters.count > 0
+    guard let userName = userNameText.text, userName.count > 0
         else { return }
-    guard let userPassword = passwordText.text, userPassword.characters.count > 0
+    guard let userPassword = passwordText.text, userPassword.count > 0
         else { return }
     
         Auth.auth().createUser(withEmail: userEmail, password: userPassword, completion: { (User, error) in
