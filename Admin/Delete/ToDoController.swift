@@ -42,12 +42,25 @@ class ToDoController{
             //    snapshot.childSnapshot(forPath: "key").childSnapshot(forPath: "Shop1") Shop1抓店名字
             
             for keyId in (snapshot.children.allObjects as! [DataSnapshot]){
-                print(keyId.key)
-                orderListDataKeyArray.append(keyId.key)
+                
+                
+                Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(keyId.key).observeSingleEvent(of: .value, with: { (mysnap) in
+                    
+                    if(mysnap.hasChild(userName)){
+                        print(keyId.key)
+                        orderListDataKeyArray.append(keyId.key)
+                        
+                        
+                        ToDoController.todosArray.append(String(keyId.key))
+                    }
+                }, withCancel: { (error) in
+                    print(error)
+                })
                 
             }
+            
             for orderList in orderListDataKeyArray {
-                ToDoController.todosArray.append(String(orderList.suffix(5)))
+                ToDoController.todosArray.append(String(orderList))
             }
             
             print("snapshot ~:",snapshot)
@@ -82,9 +95,13 @@ class ToDoController{
             print("Error get food detail:",error)
         }
     }
+    
+    
     func database(){
         
     }
+    
+    
     func getFoodName(_ snapshot:DataSnapshot)->[String]{
         for food in snapshot.children.allObjects as! [DataSnapshot]{
             foodName += [food.key]

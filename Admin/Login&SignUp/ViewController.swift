@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 class ViewController: UIViewController {
     
+    @IBOutlet weak var errorLabel: UITextView!
     @IBOutlet weak var userNameText: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordText: UITextField!
@@ -23,8 +24,11 @@ class ViewController: UIViewController {
     //    }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        VC.userNameData = userNameText.text!
+        //        VC.userNameData = userNameText.text!
+        userNameText.addTarget(self, action: #selector(handleTextFill), for: .editingChanged)
+        passwordText.addTarget(self, action: #selector(handleTextFill), for: .editingChanged)
         loginButton.addTarget(self, action: #selector(getDBvalue), for: UIControlEvents.touchUpInside)
+        loginButton.layer.cornerRadius = 2
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -34,10 +38,12 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let data = segue.destination as! ToDoController
-//        data.userNameData = userNameText.text!
+        //        let data = segue.destination as! ToDoController
+        //        data.userNameData = userNameText.text!
     }
     @objc func getDBvalue(){
+        if(userNameText.text == "" || passwordText.text == ""){ return }
+        
         guard let userText = userNameText.text else { return }
         guard let passwordText = passwordText.text else {return}
         Database.database().reference().child("ShopManagement").child(userText).observeSingleEvent(of: DataEventType.value, with: { (Snapshot) in
@@ -69,6 +75,18 @@ class ViewController: UIViewController {
     }
     
     
+    
+    @objc func handleTextFill(){
+        if let isEmailFill = userNameText.text ,let isPasswordFill = passwordText.text{
+            if isEmailFill.count > 0 && isPasswordFill.count > 0 {
+                loginButton.isEnabled = true
+                loginButton.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+            }else{
+                loginButton.isEnabled = false
+                loginButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            }
+        }
+    }
     
 }
 
