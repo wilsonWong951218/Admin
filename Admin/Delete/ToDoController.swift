@@ -164,29 +164,26 @@ class ToDoController{
                 
             }
             print("snapshot ~:",snapshot)
-            for keyIndex in orderListDataKeyArray.indices {
-                
-                
-                
-                Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(orderListDataKeyArray[keyIndex]).child(ToDoController.userNameData).observeSingleEvent(of: .value, with: { (snap) in
-                    let valueMilo = snap.value as! [String:Any]
+//            for keyIndex in orderListDataKeyArray.indices {
+//                Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(orderListDataKeyArray[keyIndex]).child(ToDoController.userNameData).observeSingleEvent(of: .value, with: { (snap) in
+//                    let valueMilo = snap.value as! [String:Any]
                     //抓shop底下的food名字為key
-                    for food in snap.children.allObjects as! [DataSnapshot]{
-                        print(food.key)
-                        //                        ToDoController.todosArray.append(food.key)
-                        Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(orderListDataKeyArray[keyIndex]).child(ToDoController.userNameData).setValue(nil)
+//                    for food in snap.children.allObjects as! [DataSnapshot]{
+//                        print(food.key)
+                        //ToDoController.todosArray.append(food.key)
+                        Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(orderListDataKeyArray[atIndex]).child(ToDoController.userNameData).setValue(nil)
                         
                         
-                        Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("served").child(orderListDataKeyArray[keyIndex]).child(ToDoController.userNameData).updateChildValues(["OrderNumber": "123456"])
+//                        Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("served").child(orderListDataKeyArray[keyIndex]).child(ToDoController.userNameData).updateChildValues(["OrderNumber": "123456"])
+            
                         
                         
-                        
-                    }
-                    print(valueMilo)
-                }, withCancel: { (error) in
-                    print(error)
-                })
-            }
+//                    }
+//                    print(valueMilo)
+//                }, withCancel: { (error) in
+//                    print(error)
+//                })
+//            }
             
         }) { (error) in
             print("Error get food detail:",error)
