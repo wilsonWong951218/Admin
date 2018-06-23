@@ -38,9 +38,12 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //        let data = segue.destination as! ToDoController
-        //        data.userNameData = userNameText.text!
+        if segue.identifier == "ViewControllerProflie"{
+            let tableOrderListVC = segue.destination as! ViewControllerProflie
+            tableOrderListVC.loginFirst = "yes"
+        }
     }
+
     @objc func getDBvalue(){
         if(userNameText.text == "" || passwordText.text == ""){ return }
         

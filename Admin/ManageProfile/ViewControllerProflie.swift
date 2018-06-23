@@ -17,22 +17,31 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var logOutButton: UIButton!
     var idCount = Int()
     let VC = ToDoController()
+    var loginFirst = String()
     var ShopName = String()
     var ShopManage = "ShopManagement"
     var UUIDorder = String()
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profilePic: UIButton!
+    var refreshControl: UIRefreshControl!
     //    @IBOutlet weak var orderItem: UITableViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
+
         getUserInfo()
-        //        let image = UIImage(data: profileID[0] as! Data)
-        //        profilePic.setImage(image, for: UIControlState.normal)
-        //        profilePic.layer.cornerRadius = profilePic.frame.width/2
-        //        profilePic.layer.masksToBounds = true
-        
-        //        getUserInfo()
+
+        ToDoController.todosArray.removeAll()
+        if (loginFirst != "yes"){
+            refreshTableViewInTime()
+            
+        }
         logOutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+    }
+    func refreshTableViewInTime(){
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+
+            self.tableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,10 +62,7 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        idCount = ToDoController.todosArray.count
-        print(idCount)
-        getUserInfo()
-        
+
         return ToDoController.todosArray.count
     }
     
@@ -95,6 +101,7 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func getUserInfo(){
+
         let profileID = UserDefaults.standard.object(forKey:"ID") as! NSDictionary
         ShopName = profileID["Username"] as! String
         Database.database().reference().child("ShopManagement").child(ShopName).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -103,15 +110,16 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
             self.profileName.text = "profileUserName"
             print("try")
             self.VC.getUserInfo(userName: self.ShopName)
-            if self.idCount == 0{
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
+            
             
         }) { (error) in
             print("Error get food detail:",error)
         }
+
         
     }
+    
     
     
     

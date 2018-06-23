@@ -52,6 +52,7 @@ class ToDoController{
                         
                         
                         ToDoController.todosArray.append(String(keyId.key))
+
                     }
                 }, withCancel: { (error) in
                     print(error)
@@ -94,6 +95,7 @@ class ToDoController{
         }) { (error) in
             print("Error get food detail:",error)
         }
+
     }
     
     
