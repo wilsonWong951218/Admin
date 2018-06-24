@@ -23,7 +23,6 @@ class ViewController: UIViewController {
         passwordText.addTarget(self, action: #selector(handleTextFill), for: .editingChanged)
         loginButton.addTarget(self, action: #selector(getDBvalue), for: UIControlEvents.touchUpInside)
         loginButton.layer.cornerRadius = 2
-        
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -57,25 +56,13 @@ class ViewController: UIViewController {
                 print("Login Succese")
                 self.performSegue(withIdentifier: "id", sender: nil)
                 
-                self.VC.getUserInfo(userName: userText)
-            }else{
-                // MARK: -有小bug（第一次login fail不會print 要等login success後）
-                print("Login False")
-            }
-            //            if userPassword == passwordText{
-            //                print("Login Success")
-            //            }else{
-            //                print("Login False")
-            //            }
-            
+            }else{ print("Login False") }
+
         }) { (Error) in
             print("error",Error)
         }
-        
-       
+        ToDoController.todosArray.removeAll()
     }
-    
-    
     
     @objc func handleTextFill(){
         if let isEmailFill = userNameText.text ,let isPasswordFill = passwordText.text{

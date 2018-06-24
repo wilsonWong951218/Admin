@@ -27,20 +27,14 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
     //    @IBOutlet weak var orderItem: UITableViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        getUserInfo()
-
-        ToDoController.todosArray.removeAll()
-        if (loginFirst != "yes"){
+            getUserInfo()
+            ToDoController.todosArray.removeAll()
             refreshTableViewInTime()
-            
-        }
-        logOutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+            logOutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
     }
     
     func refreshTableViewInTime(){
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-
             self.tableView.reloadData()
         }
     }
@@ -63,29 +57,24 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return ToDoController.todosArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
         let text = ToDoController.todosArray[indexPath.row] as String
         cell.textLabel?.text = String(text.suffix(5))
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
        UUIDorder = ToDoController.todosArray[indexPath.row]
         self.performSegue(withIdentifier: "TableOrderListVC", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
         if editingStyle == UITableViewCellEditingStyle.delete {
-            VC.removeToDo(atIndex: indexPath.row)
+            VC.removeToDo(atIndex: indexPath.row,userNameRemove: ShopName)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -96,7 +85,6 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
         UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()
         performSegue(withIdentifier: "BackLogInPage", sender: nil)
-  
     }
     
     func getUserInfo(){
@@ -106,12 +94,10 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
         Database.database().reference().child("ShopManagement").child(ShopName).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String:Any] else { return }
             guard let profileUserName = dictionary["userName"] as? String else { return }
-            self.profileName.text = "profileUserName"
+            self.profileName.text = profileUserName
             print("try")
             self.VC.getUserInfo(userName: self.ShopName)
             self.tableView.reloadData()
-            
-            
         }) { (error) in
             print("Error get food detail:",error)
         }

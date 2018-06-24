@@ -77,7 +77,6 @@ class TableOrderListVC: UIViewController,UITableViewDataSource,UITableViewDelega
                 self.foodPrice.append(foodDetailPrice)
             }
             self.tableView.reloadData()
-            
         }) { (error) in
             print("get table order list:",error)
         }
