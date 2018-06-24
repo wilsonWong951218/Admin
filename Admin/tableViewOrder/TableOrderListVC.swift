@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 class TableOrderListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
 
+ 
+
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -28,6 +30,8 @@ class TableOrderListVC: UIViewController,UITableViewDataSource,UITableViewDelega
         print(UUIDorder)
         
         backView.layer.cornerRadius = 10
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.separatorColor = UIColor(red: 35/255, green: 44/255, blue: 61/255, alpha: 1)
         
     }
     

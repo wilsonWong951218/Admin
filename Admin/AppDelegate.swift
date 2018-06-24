@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
-        
         if let profileID = UserDefaults.standard.object(forKey:"ID") as? NSDictionary{
             
             let myStoryBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -32,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = whiteViewController
         }
         
-        //        self.window?.makeKeyAndVisible()
+        
         // Override point for customization after application launch.
         return true
     }

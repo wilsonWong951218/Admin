@@ -13,8 +13,8 @@ import FirebaseDatabase
 class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableViewDelegate ,UITabBarDelegate{
     
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var logOutButton: UIButton!
+
+    @IBOutlet weak var LogOutButton: UIButton!
     var idCount = Int()
     let VC = ToDoController()
     var loginFirst = String()
@@ -23,19 +23,30 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
     var UUIDorder = String()
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profilePic: UIButton!
-    var refreshControl: UIRefreshControl!
+    var refreshControl = UIRefreshControl()
     //    @IBOutlet weak var orderItem: UITableViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
-            getUserInfo()
-            ToDoController.todosArray.removeAll()
-            refreshTableViewInTime()
-            logOutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action:#selector(refreshTable), for: UIControlEvents.valueChanged)
+        tableView.addSubview(refreshControl)
+        getUserInfo()
+        refreshTableViewInTime()
+        LogOutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+        LogOutButton.layer.cornerRadius = 2.5
+        LogOutButton.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
     }
     
-    func refreshTableViewInTime(){
+    @objc func refreshTable(){
+        viewDidLoad()
+    }
+    
+   func refreshTableViewInTime(){
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+
         }
     }
     
@@ -65,6 +76,7 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
         let text = ToDoController.todosArray[indexPath.row] as String
 
         cell.textLabel?.text = String(text.suffix(4))
+       // cell.textLabel?.textColor = UIColor.white
         return cell
     }
     

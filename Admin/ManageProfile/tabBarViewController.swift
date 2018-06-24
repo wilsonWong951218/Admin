@@ -11,10 +11,12 @@ import UIKit
 class tabBarViewController: UITabBarController {
     var id = String()
     
+    @IBOutlet weak var tabber: UITabBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         let viewProfile = self.viewControllers![0] as! ViewControllerProflie
         viewProfile.loginFirst = id
+        tabber.barTintColor = #colorLiteral(red: 0.2509803922, green: 0.3098039216, blue: 0.4, alpha: 1)
         // Do any additional setup after loading the view.
     }
 

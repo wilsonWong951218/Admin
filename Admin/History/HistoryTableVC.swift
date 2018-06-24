@@ -28,6 +28,8 @@ class HistoryTableVC: UIViewController ,UITableViewDataSource,UITableViewDelegat
         getDB()
         backButton.addTarget(self, action: #selector(handleBackButton), for: .touchUpInside)
         backView.layer.cornerRadius = 10
+        historyTable.tableFooterView = UIView(frame: CGRect.zero)
+        historyTable.separatorColor = UIColor(red: 35/255, green: 44/255, blue: 61/255, alpha: 1)
     }
 
     @objc func handleBackButton(){

@@ -13,9 +13,10 @@
 		4BE4D5D920A9D8E500B913C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BE4D5D820A9D8E400B913C1 /* GoogleService-Info.plist */; };
 		9AF83DF0209E173D005C087F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF83DEF209E173D005C087F /* AppDelegate.swift */; };
 		9AF83DF2209E173D005C087F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF83DF1209E173D005C087F /* ViewController.swift */; };
-		9AF83DF5209E173D005C087F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF83DF3209E173D005C087F /* Main.storyboard */; };
 		9AF83DF7209E173E005C087F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AF83DF6209E173E005C087F /* Assets.xcassets */; };
 		9AF83DFA209E173E005C087F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF83DF8209E173E005C087F /* LaunchScreen.storyboard */; };
+		E20131DB20DFF5C500FA5EC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E20131DA20DFF5C400FA5EC0 /* Main.storyboard */; };
+		E20131DD20DFF71D00FA5EC0 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20131DC20DFF71D00FA5EC0 /* DesignableTextField.swift */; };
 		E220C61C20DF943500593248 /* tabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E220C61B20DF943500593248 /* tabBarViewController.swift */; };
 		E220C61F20DF9D0500593248 /* DataPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E220C61E20DF9D0500593248 /* DataPickerVC.swift */; };
 		E220C62120DFBECA00593248 /* HistoryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E220C62020DFBECA00593248 /* HistoryTableVC.swift */; };
@@ -36,11 +37,12 @@
 		9AF83DEC209E173D005C087F /* Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Admin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF83DEF209E173D005C087F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AF83DF1209E173D005C087F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9AF83DF4209E173D005C087F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9AF83DF6209E173E005C087F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AF83DF9209E173E005C087F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9AF83DFB209E173E005C087F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE8F6BE3E226EFEF0A7FE224 /* Pods-Admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Admin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Admin/Pods-Admin.release.xcconfig"; sourceTree = "<group>"; };
+		E20131DA20DFF5C400FA5EC0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E20131DC20DFF71D00FA5EC0 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		E220C61B20DF943500593248 /* tabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarViewController.swift; sourceTree = "<group>"; };
 		E220C61E20DF9D0500593248 /* DataPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPickerVC.swift; sourceTree = "<group>"; };
 		E220C62020DFBECA00593248 /* HistoryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableVC.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		4BC198D920C2B5D700B4D05E /* Login&SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				E20131DC20DFF71D00FA5EC0 /* DesignableTextField.swift */,
 				9AF83DF1209E173D005C087F /* ViewController.swift */,
 			);
 			path = "Login&SignUp";
@@ -126,7 +129,7 @@
 				4BC198DA20C2B64100B4D05E /* ManageProfile */,
 				4BC198D920C2B5D700B4D05E /* Login&SignUp */,
 				9AF83DEF209E173D005C087F /* AppDelegate.swift */,
-				9AF83DF3209E173D005C087F /* Main.storyboard */,
+				E20131DA20DFF5C400FA5EC0 /* Main.storyboard */,
 				9AF83DF6209E173E005C087F /* Assets.xcassets */,
 				9AF83DF8209E173E005C087F /* LaunchScreen.storyboard */,
 				4BE4D5D820A9D8E400B913C1 /* GoogleService-Info.plist */,
@@ -232,12 +235,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E20131DB20DFF5C500FA5EC0 /* Main.storyboard in Resources */,
 				E2817EA520DE3B4900D82710 /* OrderListTableViewCell.xib in Resources */,
 				9AF83DFA209E173E005C087F /* LaunchScreen.storyboard in Resources */,
 				4BE4D5D920A9D8E500B913C1 /* GoogleService-Info.plist in Resources */,
 				9AF83DF7209E173E005C087F /* Assets.xcassets in Resources */,
 				E220C62520DFC22900593248 /* HistoryTableViewCell.xib in Resources */,
-				9AF83DF5209E173D005C087F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +303,7 @@
 				E220C62120DFBECA00593248 /* HistoryTableVC.swift in Sources */,
 				9AF83DF0209E173D005C087F /* AppDelegate.swift in Sources */,
 				E2817EA420DE3B4900D82710 /* OrderListTableViewCell.swift in Sources */,
+				E20131DD20DFF71D00FA5EC0 /* DesignableTextField.swift in Sources */,
 				E2BA4F8C20A32022000186C9 /* ViewControllerProflie.swift in Sources */,
 				E220C62420DFC22900593248 /* HistoryTableViewCell.swift in Sources */,
 				E2817EA920DE430F00D82710 /* TableOrderListVC.swift in Sources */,
@@ -310,14 +314,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9AF83DF3209E173D005C087F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9AF83DF4209E173D005C087F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9AF83DF8209E173E005C087F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

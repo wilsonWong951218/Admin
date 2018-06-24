@@ -28,6 +28,8 @@ class DataPickerVC: UIViewController ,UITableViewDelegate,UITableViewDataSource 
         datePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
         searchButton.addTarget(self, action: #selector(handleSearchButton), for: .touchUpInside)
         dataPickerFirstRespone()
+        datePicker.backgroundColor = #colorLiteral(red: 0.2509803922, green: 0.3058823529, blue: 0.4039215686, alpha: 1)
+        datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         // Do any additional setup after loading the view.
     }
     
@@ -87,6 +89,7 @@ class DataPickerVC: UIViewController ,UITableViewDelegate,UITableViewDataSource 
         
         let text = orderListDataKeyArray[indexPath.row]
         cell.textLabel?.text =  String(text.suffix(4))
+      //  cell.textLabel?.textColor = UIColor.white
         return cell
     }
     

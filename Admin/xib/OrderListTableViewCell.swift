@@ -22,7 +22,7 @@ class OrderListTableViewCell: UITableViewCell {
         // Initialization code
         backView.layer.borderWidth = 2
         backView.layer.cornerRadius = 10
-        backView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView.backgroundColor = #colorLiteral(red: 0.2413900267, green: 0.3122618664, blue: 0.4078631215, alpha: 1)
         
     }
 
