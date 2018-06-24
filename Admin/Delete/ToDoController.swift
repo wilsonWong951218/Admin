@@ -56,28 +56,11 @@ class ToDoController{
                 ToDoController.todosArray.append(String(orderList))
             }
             
-            print("snapshot ~:",snapshot)
-            for keyIndex in orderListDataKeyArray.indices {
-                
-                Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(orderListDataKeyArray[keyIndex]).observeSingleEvent(of: .value, with: { (mysnap) in
-                    
-                    if mysnap.hasChild(userName) {
-                        Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(orderListDataKeyArray[keyIndex]).child(userName).observeSingleEvent(of: .value, with: { (snap) in
-                        }, withCancel: { (error) in
-                            print(error)
-                        })
-                        
-                    }
-                }, withCancel: { (error) in
-                    print(error)
-                })
-            }
         }) { (error) in
             print("Error get food detail:",error)
         }
     }
-    func database(){
-    }
+
     func getFoodName(_ snapshot:DataSnapshot)->[String]{
         for food in snapshot.children.allObjects as! [DataSnapshot]{
             foodName += [food.key]

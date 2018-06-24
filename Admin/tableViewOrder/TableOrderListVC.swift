@@ -27,7 +27,7 @@ class TableOrderListVC: UIViewController,UITableViewDataSource,UITableViewDelega
        getDB()
         print(UUIDorder)
         
-        backView.layer.cornerRadius = 5
+        backView.layer.cornerRadius = 10
         
     }
     
