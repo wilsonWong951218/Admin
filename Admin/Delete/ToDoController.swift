@@ -64,33 +64,6 @@ class ToDoController{
                 ToDoController.todosArray.append(String(orderList))
             }
             
-            print("snapshot ~:",snapshot)
-            for keyIndex in orderListDataKeyArray.indices {
-                
-                Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(orderListDataKeyArray[keyIndex]).observeSingleEvent(of: .value, with: { (mysnap) in
-                    
-                    if mysnap.hasChild(userName) {
-                        Database.database().reference().child("OrderList").child("\(isYear)").child("\(isMonth)").child("\(isDate)").child("Unserve").child(orderListDataKeyArray[keyIndex]).child(userName).observeSingleEvent(of: .value, with: { (snap) in
-//                            let valueMilo = snap.value as! [String:Any]
-//                            //抓shop底下的food名字為key
-//                            for food in snap.children.allObjects as! [DataSnapshot]{
-//                                print(food.key)
-//                                ToDoController.todosArray.append(food.key)
-//
-//
-//                            }
-//                            print(valueMilo)
-                        }, withCancel: { (error) in
-                            print(error)
-                        })
-                        
-                    }
-                }, withCancel: { (error) in
-                    print(error)
-                })
-                
-                
-            }
             
         }) { (error) in
             print("Error get food detail:",error)

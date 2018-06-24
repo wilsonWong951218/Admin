@@ -71,7 +71,7 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let text = ToDoController.todosArray[indexPath.row] as String
-        cell.textLabel?.text = String(text.suffix(5))
+        cell.textLabel?.text = String(text.suffix(4))
         
         return cell
     }

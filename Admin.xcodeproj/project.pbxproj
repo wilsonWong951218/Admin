@@ -17,6 +17,10 @@
 		9AF83DF7209E173E005C087F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AF83DF6209E173E005C087F /* Assets.xcassets */; };
 		9AF83DFA209E173E005C087F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF83DF8209E173E005C087F /* LaunchScreen.storyboard */; };
 		E220C61C20DF943500593248 /* tabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E220C61B20DF943500593248 /* tabBarViewController.swift */; };
+		E220C61F20DF9D0500593248 /* DataPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E220C61E20DF9D0500593248 /* DataPickerVC.swift */; };
+		E220C62120DFBECA00593248 /* HistoryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E220C62020DFBECA00593248 /* HistoryTableVC.swift */; };
+		E220C62420DFC22900593248 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E220C62220DFC22900593248 /* HistoryTableViewCell.swift */; };
+		E220C62520DFC22900593248 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E220C62320DFC22900593248 /* HistoryTableViewCell.xib */; };
 		E2817EA420DE3B4900D82710 /* OrderListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2817EA220DE3B4900D82710 /* OrderListTableViewCell.swift */; };
 		E2817EA520DE3B4900D82710 /* OrderListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2817EA320DE3B4900D82710 /* OrderListTableViewCell.xib */; };
 		E2817EA920DE430F00D82710 /* TableOrderListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2817EA820DE430F00D82710 /* TableOrderListVC.swift */; };
@@ -38,6 +42,10 @@
 		9AF83DFB209E173E005C087F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE8F6BE3E226EFEF0A7FE224 /* Pods-Admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Admin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Admin/Pods-Admin.release.xcconfig"; sourceTree = "<group>"; };
 		E220C61B20DF943500593248 /* tabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarViewController.swift; sourceTree = "<group>"; };
+		E220C61E20DF9D0500593248 /* DataPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPickerVC.swift; sourceTree = "<group>"; };
+		E220C62020DFBECA00593248 /* HistoryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableVC.swift; sourceTree = "<group>"; };
+		E220C62220DFC22900593248 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		E220C62320DFC22900593248 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		E2817EA220DE3B4900D82710 /* OrderListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableViewCell.swift; sourceTree = "<group>"; };
 		E2817EA320DE3B4900D82710 /* OrderListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderListTableViewCell.xib; sourceTree = "<group>"; };
 		E2817EA820DE430F00D82710 /* TableOrderListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOrderListVC.swift; sourceTree = "<group>"; };
@@ -111,6 +119,7 @@
 		9AF83DEE209E173D005C087F /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				E220C61D20DF9C9E00593248 /* History */,
 				E2817EA120DE3B2C00D82710 /* xib */,
 				E2817EA620DE42D600D82710 /* tableViewOrder */,
 				4BC198DB20C2B66B00B4D05E /* Delete */,
@@ -135,11 +144,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E220C61D20DF9C9E00593248 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				E220C61E20DF9D0500593248 /* DataPickerVC.swift */,
+				E220C62020DFBECA00593248 /* HistoryTableVC.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		E2817EA120DE3B2C00D82710 /* xib */ = {
 			isa = PBXGroup;
 			children = (
 				E2817EA220DE3B4900D82710 /* OrderListTableViewCell.swift */,
 				E2817EA320DE3B4900D82710 /* OrderListTableViewCell.xib */,
+				E220C62220DFC22900593248 /* HistoryTableViewCell.swift */,
+				E220C62320DFC22900593248 /* HistoryTableViewCell.xib */,
 			);
 			path = xib;
 			sourceTree = "<group>";
@@ -216,6 +236,7 @@
 				9AF83DFA209E173E005C087F /* LaunchScreen.storyboard in Resources */,
 				4BE4D5D920A9D8E500B913C1 /* GoogleService-Info.plist in Resources */,
 				9AF83DF7209E173E005C087F /* Assets.xcassets in Resources */,
+				E220C62520DFC22900593248 /* HistoryTableViewCell.xib in Resources */,
 				9AF83DF5209E173D005C087F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,9 +296,12 @@
 				E220C61C20DF943500593248 /* tabBarViewController.swift in Sources */,
 				4B6D412A20B32F5D001BD051 /* ToDoViewController.swift in Sources */,
 				9AF83DF2209E173D005C087F /* ViewController.swift in Sources */,
+				E220C61F20DF9D0500593248 /* DataPickerVC.swift in Sources */,
+				E220C62120DFBECA00593248 /* HistoryTableVC.swift in Sources */,
 				9AF83DF0209E173D005C087F /* AppDelegate.swift in Sources */,
 				E2817EA420DE3B4900D82710 /* OrderListTableViewCell.swift in Sources */,
 				E2BA4F8C20A32022000186C9 /* ViewControllerProflie.swift in Sources */,
+				E220C62420DFC22900593248 /* HistoryTableViewCell.swift in Sources */,
 				E2817EA920DE430F00D82710 /* TableOrderListVC.swift in Sources */,
 				4B6D412C20B33147001BD051 /* ToDoController.swift in Sources */,
 			);
