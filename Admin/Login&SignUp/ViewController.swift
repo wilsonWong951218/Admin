@@ -15,13 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordText: UITextField!
     let VC = ToDoController()
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        let ViewControllerPass = segue.destination as! ViewControllerProflie
-    //        if let tezt = self.userNameText.text{
-    //            ViewControllerPass.profileName.text = tezt
-    //            print("okay" + tezt)
-    //        }
-    //    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //        VC.userNameData = userNameText.text!
@@ -29,6 +23,8 @@ class ViewController: UIViewController {
         passwordText.addTarget(self, action: #selector(handleTextFill), for: .editingChanged)
         loginButton.addTarget(self, action: #selector(getDBvalue), for: UIControlEvents.touchUpInside)
         loginButton.layer.cornerRadius = 2
+        
+
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -38,9 +34,9 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ViewControllerProflie"{
-            let tableOrderListVC = segue.destination as! ViewControllerProflie
-            tableOrderListVC.loginFirst = "yes"
+        if segue.identifier == "id"{
+            let tableOrderListVC = segue.destination as! tabBarViewController
+            tableOrderListVC.id = "yes"
         }
     }
 
@@ -75,6 +71,8 @@ class ViewController: UIViewController {
         }) { (Error) in
             print("error",Error)
         }
+        
+       
     }
     
     

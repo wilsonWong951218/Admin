@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 class TableOrderListVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
 
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var UUIDorder = String()
@@ -19,12 +20,14 @@ class TableOrderListVC: UIViewController,UITableViewDataSource,UITableViewDelega
     var foodPrice = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let nibCell = UINib(nibName:"OrderListTableViewCell", bundle: nil)
         tableView.register(nibCell, forCellReuseIdentifier: "OrderListTableViewCell")
         backButton.addTarget(self, action: #selector(handleBackButton), for: .touchUpInside)
        getDB()
         print(UUIDorder)
         
+        backView.layer.cornerRadius = 5
         
     }
     

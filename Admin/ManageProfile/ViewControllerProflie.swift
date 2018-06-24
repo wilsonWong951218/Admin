@@ -37,6 +37,7 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
         }
         logOutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
     }
+    
     func refreshTableViewInTime(){
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
 
@@ -71,6 +72,7 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
         
         let text = ToDoController.todosArray[indexPath.row] as String
         cell.textLabel?.text = String(text.suffix(5))
+        
         return cell
     }
     
@@ -93,11 +95,8 @@ class ViewControllerProflie: UIViewController, UITableViewDataSource, UITableVie
         let domain = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()
-        dismiss(animated: true, completion: nil)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-        navigationController?.pushViewController(vc, animated: true)
-        
+        performSegue(withIdentifier: "BackLogInPage", sender: nil)
+  
     }
     
     func getUserInfo(){
