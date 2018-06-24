@@ -16,8 +16,8 @@ class tabBarViewController: UITabBarController {
         super.viewDidLoad()
         let viewProfile = self.viewControllers![0] as! ViewControllerProflie
         viewProfile.loginFirst = id
-        tabber.barTintColor = #colorLiteral(red: 0.137254902, green: 0.1725490196, blue: 0.2392156863, alpha: 1)
-        tabber.tintColor = UIColor.black
+        tabber.barTintColor = #colorLiteral(red: 0.137254902, green: 0.1725490196, blue: 0.2352941176, alpha: 1)
+        tabber.tintColor = UIColor.white
         // Do any additional setup after loading the view.
     }
 

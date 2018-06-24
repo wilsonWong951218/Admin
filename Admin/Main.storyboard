@@ -168,7 +168,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qba-D8-Od7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.42745098039215684" green="0.45098039215686275" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBar>
                     <connections>
                         <outlet property="tabber" destination="Qba-D8-Od7" id="0nW-rz-vgH"/>
@@ -180,7 +181,7 @@
             </objects>
             <point key="canvasLocation" x="-1183" y="378"/>
         </scene>
-        <!--Hone-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ViewControllerProflie" id="BYZ-38-t0r" customClass="ViewControllerProflie" customModule="Admin" customModuleProvider="target" sceneMemberID="viewController">
@@ -259,7 +260,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Hone" image="notepad" selectedImage="notepad_1" id="BWH-V6-WZ4"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="notepad" selectedImage="notepad_1" id="BWH-V6-WZ4"/>
                     <connections>
                         <outlet property="LogOutButton" destination="4jt-41-l5a" id="RQN-Do-vf5"/>
                         <outlet property="profileName" destination="gVg-8e-iWf" id="xDU-tB-hXz"/>
