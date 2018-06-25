@@ -41,7 +41,7 @@ class HistoryTableVC: UIViewController ,UITableViewDataSource,UITableViewDelegat
         let int_year = "\(dateYear)年"
         let int_month = "\(dateMonth)月"
         let int_day = "\(dateDay)日"
-        Database.database().reference().child("OrderList").child("\(int_year)").child("\(int_month)").child("\(int_day)").child("served").child("\(UUid)").child("Shop2").observeSingleEvent(of: .value, with: { (dataSnap) in
+        Database.database().reference().child("OrderList").child("\(int_year)").child("\(int_month)").child("\(int_day)").child("served").child("\(UUid)").child("\(userName)").observeSingleEvent(of: .value, with: { (dataSnap) in
        
             let dictionary = dataSnap.value as! [String:Any]
             for food in dataSnap.children.allObjects as! [DataSnapshot]{

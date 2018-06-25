@@ -54,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1J-rf-Bfz">
-                                <rect key="frame" x="60" y="30" width="232" height="20"/>
+                                <rect key="frame" x="60" y="30" width="242" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -66,7 +66,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ls-sG-8wc">
-                                <rect key="frame" x="79" y="50" width="195" height="20"/>
+                                <rect key="frame" x="89" y="50" width="185" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="EFZ-Gk-Wpq"/>
                                 </constraints>
@@ -92,7 +92,7 @@
                             <constraint firstItem="h1J-rf-Bfz" firstAttribute="leading" secondItem="k1P-bl-Iii" secondAttribute="trailing" id="s6f-RO-yvM"/>
                             <constraint firstItem="k1P-bl-Iii" firstAttribute="leading" secondItem="gjb-t6-scs" secondAttribute="leadingMargin" constant="8" id="tKj-j1-cff"/>
                             <constraint firstItem="h1J-rf-Bfz" firstAttribute="baseline" secondItem="k1P-bl-Iii" secondAttribute="baseline" id="tOm-dN-66K"/>
-                            <constraint firstItem="6Ls-sG-8wc" firstAttribute="leading" secondItem="gjb-t6-scs" secondAttribute="leadingMargin" constant="71" id="zIf-EM-gPs"/>
+                            <constraint firstItem="6Ls-sG-8wc" firstAttribute="leading" secondItem="gjb-t6-scs" secondAttribute="leadingMargin" constant="81" id="zIf-EM-gPs"/>
                         </constraints>
                     </view>
                 </subviews>

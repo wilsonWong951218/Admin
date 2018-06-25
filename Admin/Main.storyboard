@@ -18,27 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="HGG-bo-Thg">
-                                <rect key="frame" x="40" y="625" width="295" height="30"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haven't get an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lml-zk-NHC">
-                                        <rect key="frame" x="0.0" y="0.0" width="185" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOn-dC-6AN">
-                                        <rect key="frame" x="245" y="0.0" width="50" height="30"/>
-                                        <state key="normal" title="SignUp">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="295" id="mkk-om-ogs"/>
-                                    <constraint firstAttribute="height" constant="30" id="t0w-sI-6D3"/>
-                                </constraints>
-                            </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="rbq-VF-rfE">
                                 <rect key="frame" x="137" y="60" width="100" height="100"/>
                                 <constraints>
@@ -75,7 +54,7 @@
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="password"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
@@ -133,16 +112,13 @@
                             <constraint firstItem="wwj-00-kUO" firstAttribute="trailing" secondItem="SoI-pY-2X1" secondAttribute="trailing" constant="40" id="DFu-et-NAD"/>
                             <constraint firstItem="wwj-00-kUO" firstAttribute="trailing" secondItem="rbq-VF-rfE" secondAttribute="trailing" constant="138" id="Ldq-yb-rfD"/>
                             <constraint firstItem="wwj-00-kUO" firstAttribute="trailing" secondItem="4AI-we-OBR" secondAttribute="trailing" constant="69" id="R2d-8d-92f"/>
-                            <constraint firstItem="wwj-00-kUO" firstAttribute="bottom" secondItem="HGG-bo-Thg" secondAttribute="bottom" constant="12" id="TRz-w0-rMF"/>
                             <constraint firstItem="rbq-VF-rfE" firstAttribute="leading" secondItem="wwj-00-kUO" secondAttribute="leading" constant="137" id="VBb-cL-Sxk"/>
                             <constraint firstItem="rbq-VF-rfE" firstAttribute="top" secondItem="wwj-00-kUO" secondAttribute="top" constant="40" id="Zx3-f4-PZv"/>
-                            <constraint firstItem="wwj-00-kUO" firstAttribute="trailing" secondItem="HGG-bo-Thg" secondAttribute="trailing" constant="40" id="ciU-Em-2Fb"/>
                             <constraint firstItem="xm7-mI-P7N" firstAttribute="top" secondItem="rbq-VF-rfE" secondAttribute="bottom" constant="8" id="gn0-uQ-ysE"/>
                             <constraint firstItem="wwj-00-kUO" firstAttribute="trailing" secondItem="xm7-mI-P7N" secondAttribute="trailing" constant="134.5" id="hB0-Ib-hz4"/>
                             <constraint firstItem="4AI-we-OBR" firstAttribute="top" secondItem="SoI-pY-2X1" secondAttribute="bottom" constant="44" id="kQJ-U2-6e1"/>
                             <constraint firstItem="SoI-pY-2X1" firstAttribute="top" secondItem="xm7-mI-P7N" secondAttribute="bottom" constant="19" id="kRe-pg-aP5"/>
                             <constraint firstItem="SoI-pY-2X1" firstAttribute="leading" secondItem="wwj-00-kUO" secondAttribute="leading" constant="40" id="oXz-Jt-UpO"/>
-                            <constraint firstItem="HGG-bo-Thg" firstAttribute="leading" secondItem="wwj-00-kUO" secondAttribute="leading" constant="40" id="onO-9f-hYB"/>
                             <constraint firstItem="SoI-pY-2X1" firstAttribute="top" secondItem="rbq-VF-rfE" secondAttribute="bottom" constant="67" id="oyA-cz-spF"/>
                             <constraint firstItem="xm7-mI-P7N" firstAttribute="leading" secondItem="wwj-00-kUO" secondAttribute="leading" constant="133" id="tfe-gY-JP8"/>
                         </constraints>
